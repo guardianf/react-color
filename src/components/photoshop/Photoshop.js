@@ -111,8 +111,8 @@ export class Photoshop extends React.Component {
                 />
               </div>
               <div style={ styles.actions }>
-                <PhotoshopButton label="OK" onClick={ this.props.onAccept } active />
-                <PhotoshopButton label="Cancel" onClick={ this.props.onCancel } />
+                <PhotoshopButton label={this.props.buttons.ok} onClick={ this.props.onAccept } active />
+                <PhotoshopButton label={this.props.buttons.cancel} onClick={ this.props.onCancel } />
                 <PhotoshopFields
                   onChange={ this.props.onChange }
                   rgb={ this.props.rgb }
@@ -130,11 +130,16 @@ export class Photoshop extends React.Component {
 
 Photoshop.propTypes = {
   header: PropTypes.string,
+  buttons: PropTypes.string,
   styles: PropTypes.object,
 }
 
 Photoshop.defaultProps = {
   header: 'Color Picker',
+  buttons: {
+    ok: 'OK',
+    cancel: 'Cancel',
+  },
   styles: {},
 }
 
